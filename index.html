@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris | Real Estate Executive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --font-main: 'Source Sans Pro', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        .title {
+            background-color: var(--accent);
+            color: white;
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        /* Profile */
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .profile-img {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1583864697784-a0efc8379f70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80') center/cover;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .profile-content {
+            flex: 2;
+        }
+        
+        .profile-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .profile-content p {
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* Experience */
+        .experience {
+            background-color: var(--light);
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .experience-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .company {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .position {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .achievements {
+            list-style-position: inside;
+        }
+        
+        .achievements li {
+            margin-bottom: 10px;
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .project-img {
+            height: 200px;
+            background: #ddd center/cover;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .project-location {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Boards */
+        .boards {
+            background-color: var(--light);
+        }
+        
+        .board-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .board-item {
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .board-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .board-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Philanthropy */
+        .philanthropy {
+            text-align: center;
+        }
+        
+        .philanthropy p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Awards */
+        .awards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .award {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .award-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+            }
+            
+            .profile-img {
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Chris</h1>
+            <p class="tagline">Civil Engineer & Real Estate Executive</p>
+            <div class="title">16+ Years C-Level Experience</div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Chris</div>
+            <ul class="nav-links">
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#boards">Leadership</a></li>
+                <li><a href="#philanthropy">Philanthropy</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="profile">
+        <div class="container">
+            <h2 class="section-title">Professional Profile</h2>
+            <div class="profile">
+                <div class="profile-img"></div>
+                <div class="profile-content">
+                    <h2>Creating Value Through Development</h2>
+                    <p>A <span class="highlight">civil engineer</span> by profession who has been a <span class="highlight">C-Level executive</span> for more than 16 years. In his former years having worked as a contractor, a consultant and a developer, Chris has successfully transitioned to become an <span class="highlight">experienced real estate developer</span> spearheading developments across the whole real estate value chain.</p>
+                    <p>With <span class="highlight">over 18 years' global experience</span>, Chris took a lead in planning, structuring (financial and legal), conceptualizing and executing mixed use developments, satellite cities and urban nodes in the <span class="highlight">Middle East and Africa</span>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="company">MENA Region Projects</div>
+                    <div class="position">Project Development Manager to Development Director</div>
+                    <ul class="achievements">
+                        <li>Dubai World Trade Centre</li>
+                        <li>International City</li>
+                        <li>Dubai Sports City</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="company">Athena Properties Limited</div>
+                    <div class="position">Managing Director</div>
+                    <ul class="achievements">
+                        <li>Two Rivers Development in Nairobi</li>
+                        <li>Two Rivers Mall</li>
+                        <li>Vipingo Developments in Kilifi</li>
+                        <li>Pearl Marina in Entebbe Uganda</li>
+                        <li>Structured $70M investment from AVIC</li>
+                        <li>Secured $60M from Old Mutual</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="company">Rendeavour / Tatu City</div>
+                    <div class="position">Leadership Team</div>
+                    <ul class="achievements">
+                        <li>5,000 acre development in Ruiru, Kenya</li>
+                        <li>Headed development group across Africa</li>
+                        <li>Attracted international partners</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="company">GulfCAP RE</div>
+                    <div class="position">Current CEO</div>
+                    <ul class="achievements">
+                        <li>Developing Buxton Point</li>
+                        <li>Starehe Point</li>
+                        <li>In City Suites</li>
+                        <li>LV Marina</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80');"></div>
+                    <div class="project-info">
+                        <div class="project-title">Two Rivers Development</div>
+                        <div class="project-location">Nairobi, Kenya</div>
+                        <p>Integrated mixed-use development featuring East Africa's largest mall</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="project-info">
+                        <div class="project-title">Tatu City</div>
+                        <div class="project-location">Ruiru, Kenya</div>
+                        <p>5,000-acre new city development</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="project-info">
+                        <div class="project-title">Pearl Marina</div>
+                        <div class="project-location">Entebbe, Uganda</div>
+                        <p>Luxury waterfront community on Lake Victoria</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="boards" class="boards">
+        <div class="container">
+            <h2 class="section-title">Board Memberships</h2>
+            <div class="board-list">
+                <div class="board-item">
+                    <div class="board-name">Mizizi Technologies</div>
+                    <div class="board-desc">Tech solutions company</div>
+                </div>
+                
+                <div class="board-item">
+                    <div class="board-name">Mteja</div>
+                    <div class="board-desc">Fintech company</div>
+                </div>
+                
+                <div class="board-item">
+                    <div class="board-name">Angaza Group</div>
+                    <div class="board-desc">Agricultural production & processing</div>
+                </div>
+                
+                <div class="board-item">
+                    <div class="board-name">AcaKoro Academy</div>
+                    <div class="board-desc">Education Welfare charity</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="philanthropy" class="philanthropy">
+        <div class="container">
+            <h2 class="section-title">Philanthropy</h2>
+            <p>With his wife and siblings he also runs a foundation "Forever Footsteps" which empowers youth by providing education and healthcare through sports, arts/music and drama.</p>
+        </div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <h2 class="section-title">Awards & Recognition</h2>
+            <div class="awards">
+                <div class="award">
+                    <div class="award-name">AFLI/Oxford University Tutu Fellow</div>
+                </div>
+                <div class="award">
+                    <div class="award-name">Men Impacting Business Award 2017</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;">For professional inquiries, please connect through LinkedIn or via email.</p>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="logo">Chris</div>
+            <ul class="footer-links">
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#boards">Leadership</a></li>
+                <li><a href="#philanthropy">Philanthropy</a></li>
+            </ul>
+            <p class="copyright">© 2023 Chris. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
